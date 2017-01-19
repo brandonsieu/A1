@@ -1,0 +1,2 @@
+﻿CREATE(5, 10; 3)
+CONFIGURE([-1] "Coke", 250; "water", 250; "stuff", 205)

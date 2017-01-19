@@ -65,9 +65,19 @@
     <None Include="test-scripts\T01-good-script" />
     <None Include="test-scripts\U01-bad-script1" />
     <None Include="test-scripts\U02-bad-script2" />
+    <None Include="test-scripts\U04-bad-script4-NullVendingMachinePos" />
+    <None Include="test-scripts\U09-bad-script9-NullCoinIndexNeg" />
+    <None Include="test-scripts\U10-bad-script10-PopCostsNegative" />
+    <None Include="test-scripts\U11-bad-script11-NullPopIndexPos" />
+    <None Include="test-scripts\U12-bad-script12-NullPopIndexNeg" />
+    <None Include="test-scripts\U06-bad-script6-UnequalPopsToButtons" />
+    <None Include="test-scripts\U07-bad-script7-UnequalNamesToCosts" />
+    <None Include="test-scripts\U08-bad-script8-NullCoinIndexPos" />
+    <None Include="test-scripts\U05-bad-script5-NullVendingMachineNeg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="test-scripts\README.txt" />
+    <None Include="test-scripts\U03-bad-script3-NonDistinctCoins" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -1,0 +1,3 @@
+﻿CREATE(5, 10; 3)
+CONFIGURE([0] "Coke", 250; "water", 250; "stuff", 205)
+POP_LOAD([0] 3; "Coke", 1)
