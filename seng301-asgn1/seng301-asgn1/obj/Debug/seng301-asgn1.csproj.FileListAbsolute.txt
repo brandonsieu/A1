@@ -4,3 +4,10 @@ C:\Users\xXMeg\Desktop\A1\seng301-asgn1\seng301-asgn1\bin\Debug\seng301-asgn1.pd
 C:\Users\xXMeg\Desktop\A1\seng301-asgn1\seng301-asgn1\bin\Debug\grammatica-1.6.dll
 C:\Users\xXMeg\Desktop\A1\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.exe
 C:\Users\xXMeg\Desktop\A1\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.pdb
+C:\Users\xXMeg\Desktop\SENG301\A1\seng301-asgn1\seng301-asgn1\bin\Debug\seng301-asgn1.exe.config
+C:\Users\xXMeg\Desktop\SENG301\A1\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.exe
+C:\Users\xXMeg\Desktop\SENG301\A1\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.pdb
+C:\Users\xXMeg\Desktop\SENG301\A1\seng301-asgn1\seng301-asgn1\bin\Debug\seng301-asgn1.exe
+C:\Users\xXMeg\Desktop\SENG301\A1\seng301-asgn1\seng301-asgn1\bin\Debug\seng301-asgn1.pdb
+C:\Users\xXMeg\Desktop\SENG301\A1\seng301-asgn1\seng301-asgn1\bin\Debug\grammatica-1.6.dll
+C:\Users\xXMeg\Desktop\SENG301\A1\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.csprojResolveAssemblyReference.cache

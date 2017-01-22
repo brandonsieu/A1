@@ -63,6 +63,20 @@ namespace Frontend1.Parser {
             var coinsUsedForPayment = this.teardown[1];
             var unsoldPops = this.teardown[2];
 
+            foreach (var coin in coinsUsedForPayment)
+            {
+                totalCoinsUsed -= ((Coin)coin).Value;
+            }
+            if (!((totalChangeRemaining == 0) && (totalCoinsUsed == 0)))
+            {
+                result = false;
+            }
+            if (popsRemaining.Count != unsoldPops.Count)
+            {
+                Console.WriteLine("HI");
+                result = false;
+            }
+
             foreach (var coin in coinsRemaining) {
                 totalChangeRemaining -= ((Coin) coin).Value;
             }

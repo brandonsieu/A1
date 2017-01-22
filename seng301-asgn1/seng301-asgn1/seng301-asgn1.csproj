@@ -74,6 +74,7 @@
     <None Include="test-scripts\U07-bad-script7-UnequalNamesToCosts" />
     <None Include="test-scripts\U08-bad-script8-NullCoinIndexPos" />
     <None Include="test-scripts\U05-bad-script5-NullVendingMachineNeg" />
+    <None Include="test-scripts\U13-bad-script13-DigitinPopName" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="test-scripts\README.txt" />

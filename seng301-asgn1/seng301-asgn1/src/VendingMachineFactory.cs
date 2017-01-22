@@ -5,7 +5,8 @@ using System;
 
 using Frontend1;
 
-namespace seng301_asgn1 {
+namespace seng301_asgn1
+{
     /// <summary>
     /// Represents the concrete virtual vending machine factory that you will implement.
     /// This implements the IVendingMachineFactory interface, and so all the functions
@@ -30,15 +31,18 @@ namespace seng301_asgn1 {
     /// on typed collections: https://www.youtube.com/watch?v=WtpoaacjLtI -- if it does not
     /// make sense, you can look up "Generic Collection" tutorials for C#.
     /// </summary>
-    public class VendingMachineFactory : IVendingMachineFactory {
+    public class VendingMachineFactory : IVendingMachineFactory
+    {
         List<VendingMachine> VendingMachines = new List<VendingMachine>();
 
-        public VendingMachineFactory() {
-           // System.Diagnostics.Debug.Write("here");
+        public VendingMachineFactory()
+        {
+            // System.Diagnostics.Debug.Write("here");
             // TODO: Implement
         }
 
-        public int createVendingMachine(List<int> coinKinds, int selectionButtonCount) {
+        public int createVendingMachine(List<int> coinKinds, int selectionButtonCount)
+        {
             // TODO: Implement
             IEnumerable<int> distinct = coinKinds.Distinct();
             if (coinKinds.Count != distinct.Count() || !coinKinds.TrueForAll(isPositive)) throw new InputException();
@@ -46,42 +50,49 @@ namespace seng301_asgn1 {
             return VendingMachines.Count - 1;
         }
 
-        public void configureVendingMachine(int vmIndex, List<string> popNames, List<int> popCosts) {
+        public void configureVendingMachine(int vmIndex, List<string> popNames, List<int> popCosts)
+        {
             if (vmIndex >= VendingMachines.Count || vmIndex < 0) throw new InputException();
             if (!popCosts.TrueForAll(isPositive) || popNames.Count != popCosts.Count) throw new InputException();
+            foreach (string popName in popNames) if (popName.Any(c => char.IsDigit(c))) throw new InputException();
             if (popNames.Count != VendingMachines[vmIndex].getSelectionCount()) throw new InputException();
             VendingMachines[vmIndex].config(popNames, popCosts);
             // TODO: Implement
         }
 
-        public void loadCoins(int vmIndex, int coinKindIndex, List<Coin> coins) {
+        public void loadCoins(int vmIndex, int coinKindIndex, List<Coin> coins)
+        {
             if (vmIndex >= VendingMachines.Count || vmIndex < 0) throw new InputException();
             if (coinKindIndex >= VendingMachines[vmIndex].getcoinchuteSize() || coinKindIndex < 0) throw new InputException();
             VendingMachines[vmIndex].pushCoins(coinKindIndex, coins);
             // TODO: Implement
         }
 
-        public void loadPops(int vmIndex, int popKindIndex, List<Pop> pops) {
+        public void loadPops(int vmIndex, int popKindIndex, List<Pop> pops)
+        {
             if (vmIndex >= VendingMachines.Count || vmIndex < 0) throw new InputException();
             if (popKindIndex >= VendingMachines[vmIndex].getpopchuteSize() || popKindIndex < 0) throw new InputException();
             VendingMachines[vmIndex].pushPops(popKindIndex, pops);
             // TODO: Implement
         }
 
-        public void insertCoin(int vmIndex, Coin coin) {
+        public void insertCoin(int vmIndex, Coin coin)
+        {
             if (vmIndex >= VendingMachines.Count || vmIndex < 0) throw new InputException();
             if (VendingMachines[vmIndex].analyzeCoins(coin)) VendingMachines[vmIndex].insertCoins(coin);
             // TODO: Implement
         }
 
-        public void pressButton(int vmIndex, int value) {
+        public void pressButton(int vmIndex, int value)
+        {
             if (vmIndex >= VendingMachines.Count || vmIndex < 0) throw new InputException();
             if (value >= VendingMachines[vmIndex].getpopchuteSize() || value < 0) throw new InputException();
             VendingMachines[vmIndex].processPurchase(value);
             // TODO: Implement
         }
 
-        public List<Deliverable> extractFromDeliveryChute(int vmIndex) {
+        public List<Deliverable> extractFromDeliveryChute(int vmIndex)
+        {
             if (vmIndex >= VendingMachines.Count || vmIndex < 0) throw new InputException();
             return VendingMachines[vmIndex].emptyDelivery();
             // TODO: Implement
@@ -93,13 +104,6 @@ namespace seng301_asgn1 {
             if (vmIndex >= VendingMachines.Count || vmIndex < 0) throw new InputException();
             return VendingMachines[vmIndex].unloadMachine();
         }
-            // TODO: Implement
-            /*
-            return new List<IList>() {
-                VendingMachines[vmIndex].emptycoinChutes(),
-                VendingMachines[vmIndex].profit,
-                VendingMachines[vmIndex].emptypopChutes()};
-            }*/
 
         private class VendingMachine
         {
@@ -117,8 +121,8 @@ namespace seng301_asgn1 {
             {
                 coinValues.AddRange(coinKinds);
                 selectionButtonNumber = selectionButtonCount;
-                for(int i = 0; i < coinValues.Count; i++) coinChutes.Add(new Queue<Coin>());
-                for(int j = 0; j < selectionButtonCount; j++) popChutes.Add(new Queue<Pop>());
+                for (int i = 0; i < coinValues.Count; i++) coinChutes.Add(new Queue<Coin>());
+                for (int j = 0; j < selectionButtonCount; j++) popChutes.Add(new Queue<Pop>());
             }
 
             public int getSelectionCount()
@@ -167,7 +171,7 @@ namespace seng301_asgn1 {
             public void processPurchase(int buttonPressed)
             {
                 int totalValue = 0;
-                foreach(Coin coin in coinCache) totalValue += coin.Value;
+                foreach (Coin coin in coinCache) totalValue += coin.Value;
                 if (totalValue >= popCost[buttonPressed])
                 {
                     giveChange(totalValue - popCost[buttonPressed]);
@@ -177,7 +181,7 @@ namespace seng301_asgn1 {
                 }
             }
 
-            private void giveChange (int change)
+            private void giveChange(int change)
             {
                 List<int> coinsLeft = new List<int>();
                 coinsLeft.AddRange(coinValues);
@@ -196,12 +200,12 @@ namespace seng301_asgn1 {
                 }
             }
 
-            private void givePop (int popKindIndex)
+            private void givePop(int popKindIndex)
             {
                 sendtoDelivery(popChutes[popKindIndex].Dequeue());
             }
 
-            private void sendtoDelivery (Deliverable item)
+            private void sendtoDelivery(Deliverable item)
             {
                 deliveryChute.Add(item);
             }
@@ -211,7 +215,7 @@ namespace seng301_asgn1 {
                 List<Coin> allChange = new List<Coin>();
                 foreach (Queue<Coin> chute in coinChutes)
                 {
-                    foreach(Coin coin in chute)
+                    foreach (Coin coin in chute)
                     {
                         allChange.Add(coin);
                     }
@@ -250,15 +254,15 @@ namespace seng301_asgn1 {
             }
 
         }
-
+        
         static bool isPositive(int i)
         {
-            if(i > 0) return true;
+            if (i > 0) return true;
             return false;
         }
     }
 
-    public class InputException: Exception
+    public class InputException : Exception
     {
         public InputException()
         {
