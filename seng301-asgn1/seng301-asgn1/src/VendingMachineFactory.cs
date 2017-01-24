@@ -172,7 +172,7 @@ namespace seng301_asgn1
             {
                 int totalValue = 0;
                 foreach (Coin coin in coinCache) totalValue += coin.Value;
-                if (totalValue >= popCost[buttonPressed])
+                if (totalValue >= popCost[buttonPressed] && popChutes[buttonPressed].Count > 0)
                 {
                     giveChange(totalValue - popCost[buttonPressed]);
                     givePop(buttonPressed);

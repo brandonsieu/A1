@@ -1,2 +1,0 @@
-﻿CREATE(5, 10; 3)
-CONFIGURE([0] "UP", 250; "water", 250; "stuff", 205)
