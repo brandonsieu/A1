@@ -220,6 +220,7 @@ namespace seng301_asgn1
                         allChange.Add(coin);
                     }
                 }
+                coinChutes.Clear();
                 return allChange;
             }
 
@@ -233,6 +234,7 @@ namespace seng301_asgn1
                         allPop.Add(pop);
                     }
                 }
+                popChutes.Clear();
                 return allPop;
             }
 
@@ -244,11 +246,19 @@ namespace seng301_asgn1
                 return getDelivery;
             }
 
+            public List<Coin> emptyProfit()
+            {
+                List<Coin> takeOut = new List<Coin>();
+                takeOut.AddRange(profit);
+                profit.Clear();
+                return takeOut;
+            }
+
             public List<IList> unloadMachine()
             {
                 List<IList> returnedTuple = new List<IList>();
                 returnedTuple.Add(emptycoinChutes());
-                returnedTuple.Add(profit);
+                returnedTuple.Add(emptyProfit());
                 returnedTuple.Add(emptypopChutes());
                 return returnedTuple;
             }
