@@ -65,6 +65,8 @@
     <None Include="test-scripts\T01-good-script" />
     <None Include="test-scripts\T02-good-script - CheckPersistentCache" />
     <None Include="test-scripts\T02-good-script - MultipleMachines" />
+    <None Include="test-scripts\T03-good-script- WrongCoinWrongPop" />
+    <None Include="test-scripts\T04-good-script- CheckUnloadExtract" />
     <None Include="test-scripts\U01-bad-script1" />
     <None Include="test-scripts\U02-bad-script2" />
     <None Include="test-scripts\U04-bad-script4-NullVendingMachinePos" />
